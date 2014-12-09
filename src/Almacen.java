@@ -3,101 +3,78 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Almacen {
-	public static void main (String args[]) throws IOException 	{
+
+	public static void main (String args[]) throws IOException {
+
 		FileReader fr = new FileReader("distribuidores.txt");
 		BufferedReader br = new BufferedReader(fr); 
 		String [] campos = null;
-		System.out.println("\nLos distribuidores:");
+		System.out.println("\nDISTRIBUIDORES\n");
 		String s;
-		ArrayList <Distribuidor> al_distri = new ArrayList <Distribuidor> ();		
+		ArrayList <Distribuidor> distribuidores = new ArrayList <Distribuidor> ();		
 		while((s = br.readLine()) != null) { 
-			//creamos los objetos
-			Distribuidor distri=new Distribuidor();
-			Direccion dire=new Direccion();
-			Contacto conta=new Contacto();	
+
+			Distribuidor distribuidorObjeto = new Distribuidor();
+			Direccion direccionObjeto = new Direccion();
+			Contacto contactoObjeto = new Contacto();	
 			
 			campos = s.split(",");
 		    
-			 //introducimos los valores en los objetos para despues añadirlos al ArrayList
-	 		//DISTRIBUIDOR
-	 		distri.setNombre(campos[0]);
-	 		distri.setCIF(campos[1]);
-	 		//DIRECCION
-	 		dire.setDireccion(campos[2]);	 			
-	 		/*
-	 		odireccion.setCiudad(separado[2]);
-	 		odireccion.setCalle(separado[3]);
-	 		odireccion.setNumero(Integer.parseInt(separado[4]));
-	 		odireccion.setCodPostal(Integer.parseInt(separado[5]));
-	 		*/
-	 		//CONTACTO
-	 		conta.setNombre(campos[3]);
-	 		conta.setApellido(campos[4]);
-	 		conta.setTelefono(Integer.parseInt(campos[5]));
-	 		//completamos los datos del distribuidor con los objetos
-			distri.setDireccion(dire);
-			distri.setPersonaContacto(conta);
-			//añadimos el objeto distribuidor al ArrayList
-			al_distri.add(distri);
+	 		distribuidorObjeto.setNombre(campos[0]);
+	 		distribuidorObjeto.setCif(campos[1]);
+	 		direccionObjeto.setDireccion(campos[2]);
+	 		contactoObjeto.setNombre(campos[3]);
+	 		contactoObjeto.setApellido(campos[4]);
+	 		contactoObjeto.setTelefono(Integer.parseInt(campos[5]));
+			distribuidorObjeto.setDireccion(direccionObjeto);
+			distribuidorObjeto.setPersonaContacto(contactoObjeto);
+			distribuidores.add(distribuidorObjeto);
 		}
 
-		for(int x=0; x<al_distri.size(); x++){
-			System.out.println("--------------------------------");	
-			//nombre,CIF,o_direccion,o_personaContacto
-				System.out.println("nombre: " + al_distri.get(x).getNombre());
-				System.out.println("C.I.F.: " + al_distri.get(x).getCIF());
-				System.out.println("direccion: ");
-					System.out.println("	" + al_distri.get(x).getDireccion().getDireccion());
-				System.out.println("persona de contacto: ");
-					System.out.println("	" + al_distri.get(x).getPersonaContacto().getNombre());
-					System.out.println("	" + al_distri.get(x).getPersonaContacto().getApellido());
-					System.out.println("	" + al_distri.get(x).getPersonaContacto().getTelefono());
-			System.out.println("--------------------------------");       
-        	}   
+		for(int x = 0; x < distribuidores.size(); x++){
+			System.out.println("Nombre: " + distribuidores.get(x).getNombre());
+			System.out.println("C.I.F.: " + distribuidores.get(x).getCif());
+			System.out.println("Direccion: " + distribuidores.get(x).getDireccion().getDireccion());
+			System.out.println("Persona de contacto: " + distribuidores.get(x).getPersonaContacto().getNombre() + " " + distribuidores.get(x).getPersonaContacto().getApellido() + ", tlf.: " + distribuidores.get(x).getPersonaContacto().getTelefono() + "\n");
+       	}   
 
 
 		Scanner sc = new Scanner(System.in);	
-		System.out.println("\nIntroduce la informacion de los productos");
+		System.out.println("\nPRODUCTOS\n");
 		String cadena = "";
 		
 		//manzana
-		ArrayList <Manzana> al_manza = new ArrayList <Manzana>();
-		int cont = 0;
-		for (int m=0; m<2; m++)	{
-			cont=m+1;
-			System.out.println("\n	manzana "+cont+":");
-			/*
-			String tipoManzana, procedencia, color, 
-			Double eurosKilo;
-			Distribuidor distribuidor;
-			*/
-			Manzana manza = new Manzana();
-			System.out.println("\n		tipo de manzana:");
-			manza.setTipoManzana(sc.next());
-			System.out.println("\n		procedencia:");
-			manza.setProcedencia(sc.next());
-			System.out.println("\n		color:");
-			manza.setColor(sc.next());
-			System.out.println("\n		euro/kilo:");
-			manza.setEurosKilo(sc.nextDouble());			
-			System.out.println("\n	Introduce el nombre del distribuidor:");
-			cadena = sc.next();
-			//recorremos el ArrayList de distribuidores para buscar el introducido
-			for(int j=0; j<al_distri.size(); j++){
-				//si lo encontramos
-				if (cadena.equalsIgnoreCase(al_distri.get(j).getNombre())){
-					//le asignamos el valor del distribuidor al objeto leche
-					manza.setDistribuidor(al_distri.get(j));
+		ArrayList <Manzana> manzanas = new ArrayList <Manzana>();
+		for (int m = 0; m < 2; m++)	{
+
+			Manzana manzanaObjeto = new Manzana();
+
+			System.out.println("Manzana " + (m + 1));
+			System.out.print("Tipo de manzana:");
+			manzanaObjeto.setTipoManzana(sc.next());
+			System.out.print("Procedencia:");
+			manzanaObjeto.setProcedencia(sc.next());
+			System.out.print("Color:");
+			manzanaObjeto.setColor(sc.next());
+			System.out.print("Euro/Kilo:");
+			manzanaObjeto.setEurosKilo(sc.nextDouble());
+			System.out.print("Introduce el nombre del distribuidor:");
+			cadena = sc.next();			
+			System.out.print("\n");
+
+			for(int j = 0; j < distribuidores.size(); j++) {
+				if (cadena.equalsIgnoreCase(distribuidores.get(j).getNombre())) {
+					manzanaObjeto.setDistribuidor(distribuidores.get(j));
 				}
 			}
-			//añadimos la manzana al ArrayList
-			al_manza.add(manza);			
+			manzanas.add(manzanaObjeto);			
 		}
 		
 		//lechuga
-		ArrayList <Lechuga> al_lechuga = new ArrayList <Lechuga>();
-		System.out.println("\n	lechuga:");
+		ArrayList <Lechuga> lechugas = new ArrayList <Lechuga>();
+		System.out.println("Lechuga");
 		/*
 		String tipoLechuga, procedencia, color;
 		Double eurosUnidad;
@@ -115,23 +92,21 @@ public class Almacen {
 		System.out.println("\n	Introduce el nombre del distribuidor:");
 		cadena = sc.next();
 		//recorremos el ArrayList de distribuidores para buscar el introducido
-		for(int j=0; j<al_distri.size(); j++) {
+		for(int j=0; j<distribuidores.size(); j++) {
 			//si lo encontramos
-			if (cadena.equalsIgnoreCase(al_distri.get(j).getNombre())){
+			if (cadena.equalsIgnoreCase(distribuidores.get(j).getNombre())){
 				//le asignamos el valor del distribuidor al objeto leche
-				lechu.setDistribuidor(al_distri.get(j));
+				lechu.setDistribuidor(distribuidores.get(j));
 			}
 		}
 		//añadimos la manzana al ArrayList
-		al_lechuga.add(lechu);
+		lechugas.add(lechu);
 		
 		//leche
 		ArrayList <Leche> al_leche = new ArrayList <Leche>();
-		cont=0;
 		for (int l=0; l<2; l++)
 		{
-			cont=l+1;
-			System.out.println("\n	leche"+cont+":");
+			System.out.println("\n	leche"+(l+1)+":");
 			/*
     		String tipo, procedencia;
 			Double eurosLitro;
@@ -148,12 +123,12 @@ public class Almacen {
 			System.out.println("\n	Introduce el nombre del distribuidor:");
 			cadena = sc.next();
 			//recorremos el ArrayList de distribuidores para buscar el introducido
-			for(int j=0; j<al_distri.size(); j++)
+			for(int j=0; j<distribuidores.size(); j++)
 			{
 				//si lo encontramos
-				if (cadena.equalsIgnoreCase(al_distri.get(j).getNombre())){
+				if (cadena.equalsIgnoreCase(distribuidores.get(j).getNombre())){
 					//le asignamos el valor del distribuidor al objeto leche
-					lec.setDistribuidor(al_distri.get(j));
+					lec.setDistribuidor(distribuidores.get(j));
 				}
 			}
 			//añadimos la leche al ArrayList
@@ -168,25 +143,25 @@ public class Almacen {
 			Double eurosKilo;
 			Distribuidor distribuidor;
 			*/
-		for(int i = 0;i<al_manza.size();i++)	{
-			System.out.println("Tipo de manzana: "+(al_manza.get(i).getTipoManzana()));
-			System.out.println("Prcedencia: "+(al_manza.get(i).getProcedencia()));
-			System.out.println("Color: "+(al_manza.get(i).getColor()));
-			System.out.println("euro/Kg: "+(al_manza.get(i).getEurosKilo()));
+		for(int i = 0;i<manzanas.size();i++)	{
+			System.out.println("Tipo de manzana: "+(manzanas.get(i).getTipoManzana()));
+			System.out.println("Prcedencia: "+(manzanas.get(i).getProcedencia()));
+			System.out.println("Color: "+(manzanas.get(i).getColor()));
+			System.out.println("euro/Kg: "+(manzanas.get(i).getEurosKilo()));
 			System.out.println("***DISTRIBUIDOR***");
 			    /*
-			    String nombre,	CIF;
+			    String nombre,	cif;
 				Direccion direccion;
 					String direccion;
 				Contacto personaContacto;
 				    String nombre, apellido;
 					int telefono;   
 				*/
-			System.out.println("DISTRIBUIDOR: "+(al_manza.get(i).getDistribuidor().getNombre()));
-			System.out.println("CIF:" + al_manza.get(i).getDistribuidor().getCIF());
-			System.out.println("DIRECCION:" + al_manza.get(i).getDistribuidor().getDireccion().getDireccion());
-			System.out.println("CONTACTO:" + al_manza.get(i).getDistribuidor().getPersonaContacto().getNombre() + " " + al_manza.get(i).getDistribuidor().getPersonaContacto().getApellido());
-			System.out.println("TELEFONO:" + al_manza.get(i).getDistribuidor().getPersonaContacto().getTelefono());
+			System.out.println("DISTRIBUIDOR: "+(manzanas.get(i).getDistribuidor().getNombre()));
+			System.out.println("cif:" + manzanas.get(i).getDistribuidor().getCif());
+			System.out.println("DIRECCION:" + manzanas.get(i).getDistribuidor().getDireccion().getDireccion());
+			System.out.println("CONTACTO:" + manzanas.get(i).getDistribuidor().getPersonaContacto().getNombre() + " " + manzanas.get(i).getDistribuidor().getPersonaContacto().getApellido());
+			System.out.println("TELEFONO:" + manzanas.get(i).getDistribuidor().getPersonaContacto().getTelefono());
 			System.out.println("*********************************************************");
 		}
 		System.out.println("****Lechuga****");
@@ -195,25 +170,25 @@ public class Almacen {
 			Double eurosUnidad;
 			Distribuidor distribuidor;
 			*/
-		for(int i = 0;i<al_lechuga.size();i++)	{
-			System.out.println("Tipo de lechuga: "+(al_lechuga.get(i).getTipoLechuga()));
-			System.out.println("Prcedencia: "+(al_lechuga.get(i).getProcedencia()));
-			System.out.println("Color: "+(al_lechuga.get(i).getColor()));
-			System.out.println("euro/Unidad: "+(al_lechuga.get(i).getEurosUnidad()));
+		for(int i = 0;i<lechugas.size();i++)	{
+			System.out.println("Tipo de lechuga: "+(lechugas.get(i).getTipoLechuga()));
+			System.out.println("Prcedencia: "+(lechugas.get(i).getProcedencia()));
+			System.out.println("Color: "+(lechugas.get(i).getColor()));
+			System.out.println("euro/Unidad: "+(lechugas.get(i).getEurosUnidad()));
 			System.out.println("***DISTRIBUIDOR***");
 			    /*
-			    String nombre,	CIF;
+			    String nombre,	cif;
 				Direccion direccion;
 					String direccion;
 				Contacto personaContacto;
 				    String nombre, apellido;
 					int telefono;   
 				*/
-			System.out.println("DISTRIBUIDOR: "+(al_lechuga.get(i).getDistribuidor().getNombre()));
-			System.out.println("CIF:" + al_lechuga.get(i).getDistribuidor().getCIF());
-			System.out.println("DIRECCION:" + al_lechuga.get(i).getDistribuidor().getDireccion().getDireccion());
-			System.out.println("CONTACTO:" + al_lechuga.get(i).getDistribuidor().getPersonaContacto().getNombre() + " " + al_lechuga.get(i).getDistribuidor().getPersonaContacto().getApellido());
-			System.out.println("TELEFONO:" + al_lechuga.get(i).getDistribuidor().getPersonaContacto().getTelefono());
+			System.out.println("DISTRIBUIDOR: "+(lechugas.get(i).getDistribuidor().getNombre()));
+			System.out.println("cif:" + lechugas.get(i).getDistribuidor().getCif());
+			System.out.println("DIRECCION:" + lechugas.get(i).getDistribuidor().getDireccion().getDireccion());
+			System.out.println("CONTACTO:" + lechugas.get(i).getDistribuidor().getPersonaContacto().getNombre() + " " + al_lechuga.get(i).getDistribuidor().getPersonaContacto().getApellido());
+			System.out.println("TELEFONO:" + lechugas.get(i).getDistribuidor().getPersonaContacto().getTelefono());
 			System.out.println("*********************************************************");
 		}
 		System.out.println("****Leche****");
@@ -228,7 +203,7 @@ public class Almacen {
 			System.out.println("euro/litro: "+(al_leche.get(i).getEurosLitro()));
 			System.out.println("***DISTRIBUIDOR***");
 			    /*
-			    String nombre,	CIF;
+			    String nombre,	cif;
 				Direccion direccion;
 					String direccion;
 				Contacto personaContacto;
@@ -236,7 +211,7 @@ public class Almacen {
 					int telefono;   
 				*/
 			System.out.println("DISTRIBUIDOR: "+(al_leche.get(i).getDistribuidor().getNombre()));
-			System.out.println("CIF:" + al_leche.get(i).getDistribuidor().getCIF());
+			System.out.println("cif:" + al_leche.get(i).getDistribuidor().getCif());
 			System.out.println("DIRECCION:" + al_leche.get(i).getDistribuidor().getDireccion().getDireccion());
 			System.out.println("CONTACTO:" + al_leche.get(i).getDistribuidor().getPersonaContacto().getNombre() + " " + al_leche.get(i).getDistribuidor().getPersonaContacto().getApellido());
 			System.out.println("TELEFONO:" + al_leche.get(i).getDistribuidor().getPersonaContacto().getTelefono());
@@ -244,9 +219,9 @@ public class Almacen {
 		}
     
 		// Vaciar los ArrayList
-		al_distri.clear();
+		distribuidores.clear();
 		al_leche.clear();
 		al_lechuga.clear();
-		al_manza.clear();
+		manzanas.clear();
 	}
 }	

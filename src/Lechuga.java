@@ -1,45 +1,50 @@
 public class Lechuga {
 
-    //propiedades
-    private String tipoLechuga;
-    private String procedencia;
-    private String color;
-    private Double eurosUnidad;
-    private Distribuidor distribuidor;
-    
-    //métodos getter y setter
-	public void setTipoLechuga(String tipoLechuga) {
-		this.tipoLechuga = tipoLechuga;
+	private String tipoLechuga;
+	private String procedencia;
+	private String color;
+	private Double eurosUnidad;
+	private Distribuidor distribuidor;
+
+	//métodos getter y setter
+
+	public void setTipoLechuga(String tipoLechugaIntroducido) {
+		this.tipoLechuga = tipoLechugaIntroducido;
 	}
+
 	public String getTipoLechuga() {
-		return tipoLechuga;
+		return this.tipoLechuga;
 	}
-	
-	public void setProcedencia(String procedencia) {
-		this.procedencia = procedencia;
+
+	public void setProcedencia(String procedenciaIntroducido) {
+		this.procedencia = procedenciaIntroducido;
 	}
+
 	public String getProcedencia() {
-		return procedencia;
+		return this.procedencia;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
+	public void setColor(String colorIntroducido) {
+		this.color = colorIntroducido;
 	}
+
 	public String getColor() {
-		return color;
+		return this.color;
 	}
 
-	public void setEurosUnidad(Double eurosUnidad) {
-		this.eurosUnidad = eurosUnidad;
+	public void setEurosUnidad(Double eurosUnidadIntroducido) {
+		this.eurosUnidad = eurosUnidadIntroducido;
 	}
+
 	public Double getEurosUnidad() {
-		return eurosUnidad;
-	}	
-
-	public void setDistribuidor(Distribuidor distribuidor) {
-		this.distribuidor = distribuidor;
+		return this.eurosUnidad;
 	}
+
+	public void setDistribuidor(Distribuidor distribuidorIntroducido) {
+		this.distribuidor = distribuidorIntroducido;
+	}
+
 	public Distribuidor getDistribuidor() {
-		return distribuidor;
-	}		
+		return this.distribuidor;
+	}
 }

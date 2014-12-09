@@ -1,37 +1,41 @@
 public class Leche {
 
-    //propiedades
-    private String tipo;
-    private String procedencia;
-    private Double eurosLitro;
-    private Distribuidor distribuidor;
-    
-    //métodos getter y setter
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	private String tipo;
+	private String procedencia;
+	private Double eurosLitro;
+	private Distribuidor distribuidor;
+
+	//métodos getter y setter
+
+	public void setTipo(String tipoIntroducido) {
+		this.tipo = tipoIntroducido;
 	}
+
 	public String getTipo() {
-		return tipo;
+		return this.tipo;
 	}
 
-	public void setProcedencia(String procedencia) {
-		this.procedencia = procedencia;
+	public void setProcedencia(String procedenciaIntroducido) {
+		this.procedencia = procedenciaIntroducido;
 	}
+
 	public String getProcedencia() {
-		return procedencia;
+		return this.procedencia;
 	}
 
-	public void setEurosLitro(Double eurosLitro) {
-		this.eurosLitro = eurosLitro;
+	public void setEurosLitro(Double eurosLitroIntroducido) {
+		this.eurosLitro = eurosLitroIntroducido;
 	}
+
 	public Double getEurosLitro() {
-		return eurosLitro;
-	}	
-
-	public void setDistribuidor(Distribuidor distribuidor) {
-		this.distribuidor = distribuidor;
+		return this.eurosLitro;
 	}
+
+	public void setDistribuidor(Distribuidor distribuidorIntroducido) {
+		this.distribuidor = distribuidorIntroducido;
+	}
+
 	public Distribuidor getDistribuidor() {
-		return distribuidor;
-	}	
+		return this.distribuidor;
+	}
 }
