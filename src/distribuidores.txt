@@ -1,3 +1,3 @@
-Distrubuidor1,A9876543A,Zizurkil,Edurne,Mendizabal,987654321
-Distrubuidor2,B9876543B,Villabona,Leire,Treku,123456789
-Distrubuidor3,C9876543C,Orexa,Benat,Leunda,1597538246
+Distribuidor1,A9876543A,Zizurkil,Edurne,Mendizabal,987654321
+Distribuidor2,B9876543B,Villabona,Leire,Treku,123456789
+Distribuidor3,C9876543C,Orexa,Benat,Leunda,1597538246
