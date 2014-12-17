@@ -8,6 +8,8 @@ public class Almacen {
 
 	public static void main (String args[]) throws IOException {
 
+/*--------------------------------------------------------DISTRIBUIDORES---------------------------------------------------------------*/
+
 		FileReader frDistribuidores = new FileReader("distribuidores.txt");
 		BufferedReader br = new BufferedReader(frDistribuidores); 
 		String [] palabras = null;
@@ -41,6 +43,8 @@ public class Almacen {
 			System.out.println("Persona de contacto: " + distribuidores.get(x).getPersonaContacto().getNombre() + " " + distribuidores.get(x).getPersonaContacto().getApellido() + ", tlf.: " + distribuidores.get(x).getPersonaContacto().getTelefono() + "\n");
 		}
 
+/*----------------------------------------------------------CLIENTES------------------------------------------------------------------*/
+
        	FileReader frClientes = new FileReader("clientes.txt");
 		br = new BufferedReader(frClientes);
 		palabras = null;
@@ -72,6 +76,8 @@ public class Almacen {
 			System.out.println("Número de socio: " + clientes.get(x).getNumeroSocio());
 			System.out.println("Descuento: " + clientes.get(x).getDto() + "% \n");
 		}
+
+/*----------------------------------------------------------PRODUCTOS------------------------------------------------------------------*/
 
 		Scanner sc = new Scanner(System.in);	
 		System.out.println("\nINTRODUCCION DE LOS PRODUCTOS\n");
@@ -148,6 +154,45 @@ public class Almacen {
 			leches.add(lecheObjeto);	
 		}
 
+/*------------------------------------------------------------CESTA--------------------------------------------------------------------*/
+
+		Double numSocio, dtoSocio;
+		Cesta cestaObjeto = new Cesta();		
+
+		System.out.print("Introduzca el número de socio: ");
+		numSocio = sc.nextDouble();
+
+		frClientes = new FileReader("clientes.txt");
+		br = new BufferedReader(frClientes);
+		palabras = null;	
+		while((s = br.readLine()) != null) {
+
+			Cliente clienteObjeto2 = new Cliente();
+			Direccion direccionObjeto2 = new Direccion();
+
+			palabras = s.split(", ");
+
+			if (numSocio == Double.parseDouble(palabras[4])) {
+
+				System.out.println("\nDNI: " + palabras[2]);
+				clienteObjeto2.setDni(palabras[2]);
+				System.out.println("Nombre: " + palabras[0]);
+				clienteObjeto2.setNombre(palabras[0]);
+				System.out.println("Apellidos: " + palabras[1]);
+				clienteObjeto2.setApellidos(palabras[1]);
+		 		System.out.println("Dirección: " + palabras[3]);
+		 		direccionObjeto2.setDireccion(palabras[3]);
+		 		clienteObjeto2.setDireccion(direccionObjeto2);
+		 		clienteObjeto2.setNumeroSocio(Double.parseDouble(palabras[4]));
+				System.out.println("Descuento: " + Double.parseDouble(palabras[5]) + "\n");
+				clienteObjeto2.setDto(Double.parseDouble(palabras[5]));
+				dtoSocio = Double.parseDouble(palabras[5]);
+
+
+				cestaObjeto.setCliente(clienteObjeto2);
+			}
+		}
+
 		System.out.println("\n INFROMACIÓN DE LOS PRODUCTOS \n");
 		System.out.println("MANZANAS \n");
 		for(int j = 0; j < manzanas.size(); j++) {
@@ -155,7 +200,7 @@ public class Almacen {
 			System.out.println("Tipo de manzana: " + (manzanas.get(j).getTipoManzana()));
 			System.out.println("Procedencia: " + (manzanas.get(j).getProcedencia()));
 			System.out.println("Color: " + (manzanas.get(j).getColor()));
-			System.out.println("Euro/Kilo: " + (manzanas.get(j).getEurosKilo()) + "€");
+			System.out.println("Euro/Kilo: " + (manzanas.get(j).getEurosKilo()) + " €/Kg");
 			System.out.println("-- DISTRIBUIDOR --");
 			System.out.println("Nombre: " + (manzanas.get(j).getDistribuidor().getNombre()));
 			System.out.println("CIF: " + manzanas.get(j).getDistribuidor().getCif());
@@ -170,7 +215,7 @@ public class Almacen {
 			System.out.println("Tipo de lechuga: " + (lechugas.get(j).getTipoLechuga()));
 			System.out.println("Procedencia: " + (lechugas.get(j).getProcedencia()));
 			System.out.println("Color: " + (lechugas.get(j).getColor()));
-			System.out.println("Euro/Unidad: " + (lechugas.get(j).getEurosUnidad()) + "€");
+			System.out.println("Euro/Unidad: " + (lechugas.get(j).getEurosUnidad()) + " €/U");
 			System.out.println("-- DISTRIBUIDOR --");
 			System.out.println("Nombre: " + (lechugas.get(j).getDistribuidor().getNombre()));
 			System.out.println("CIF: " + lechugas.get(j).getDistribuidor().getCif());
@@ -184,7 +229,7 @@ public class Almacen {
 			System.out.println("Leche nº" + (j + 1));
 			System.out.println("Tipo de leche: " + (leches.get(j).getTipo()));
 			System.out.println("Procedencia: " + (leches.get(j).getProcedencia()));
-			System.out.println("Euro/Litro: " + (leches.get(j).getEurosLitro()) + "€");
+			System.out.println("Euro/Litro: " + (leches.get(j).getEurosLitro()) + " €/l");
 			System.out.println("-- DISTRIBUIDOR --");
 			System.out.println("Nombre: " + (leches.get(j).getDistribuidor().getNombre()));
 			System.out.println("CIF: " + leches.get(j).getDistribuidor().getCif());
@@ -192,5 +237,11 @@ public class Almacen {
 			System.out.println("Persona de contacto: " + leches.get(j).getDistribuidor().getPersonaContacto().getNombre() + " " + leches.get(j).getDistribuidor().getPersonaContacto().getApellido() + ", tlf.: " + leches.get(j).getDistribuidor().getPersonaContacto().getTelefono());
 			System.out.print("\n");
 		}
+
+		cestaObjeto.setLeches(leches);
+		cestaObjeto.setLechugas(lechugas);
+		cestaObjeto.setManzanas(manzanas);
+
+		System.out.println("Importe total con el descuento añadido: " + cestaObjeto.importeCompra() + " €");
 	}
-}	
+}
