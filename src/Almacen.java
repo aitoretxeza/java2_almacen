@@ -9,22 +9,21 @@ public class Almacen {
 	private static BufferedReader br;
 	private static Scanner sc;
 
-	public static void main (String args[]) throws IOException {
+	public static void main (String args[]) throws IOException {		
 
+		String linea;
+		ArrayList <Distribuidor> distribuidores = new ArrayList <Distribuidor> ();
+		ArrayList <Cliente> clientes = new ArrayList <Cliente> ();
 /*--------------------------------------------------------DISTRIBUIDORES---------------------------------------------------------------*/
 
-		FileReader frDistribuidores = new FileReader("distribuidores.txt");
-		br = new BufferedReader(frDistribuidores); 
-		String [] palabras = null;
-		String s;
-		ArrayList <Distribuidor> distribuidores = new ArrayList <Distribuidor> ();		
-		while((s = br.readLine()) != null) { 
+		br = new BufferedReader(new FileReader("distribuidores.txt"));			
+		while((linea = br.readLine()) != null) { 
 
 			Distribuidor distribuidorObjeto = new Distribuidor();
 			Direccion direccionObjeto = new Direccion();
 			Contacto contactoObjeto = new Contacto();	
 			
-			palabras = s.split(",");
+			String [] palabras = linea.split(",");
 		    
 	 		distribuidorObjeto.setNombre(palabras[0]);
 	 		distribuidorObjeto.setCif(palabras[1]);
@@ -48,19 +47,16 @@ public class Almacen {
 
 /*----------------------------------------------------------CLIENTES------------------------------------------------------------------*/
 
-       	FileReader frClientes = new FileReader("clientes.txt");
-		br = new BufferedReader(frClientes);
-		palabras = null;
-		ArrayList <Cliente> clientes = new ArrayList <Cliente> ();		
-		while((s = br.readLine()) != null) {
+		br = new BufferedReader(new FileReader("clientes.txt"));		
+		while((linea = br.readLine()) != null) {
 
 			Cliente clienteObjeto = new Cliente();
 			Direccion direccionObjeto = new Direccion();
 
-			palabras = s.split(", ");
+			String [] palabras = linea.split(", ");
 
 			clienteObjeto.setNombre(palabras[0]);
-			clienteObjeto.setApellidos(palabras[1]);
+			clienteObjeto.setApellido(palabras[1]);
 			clienteObjeto.setDni(palabras[2]);			
 	 		direccionObjeto.setDireccion(palabras[3]);
 			clienteObjeto.setNumeroSocio(Double.parseDouble(palabras[4]));
@@ -74,24 +70,21 @@ public class Almacen {
 		for(int x = 0; x < clientes.size(); x++){			
 			System.out.println("DNI: " + clientes.get(x).getDni());
 			System.out.println("Nombre: " + clientes.get(x).getNombre());
-			System.out.println("Apellidos: " + clientes.get(x).getApellidos());
+			System.out.println("Apellidos: " + clientes.get(x).getApellido());
 			System.out.println("Dirección: " + clientes.get(x).getDireccion().getDireccion());
 			System.out.println("Número de socio: " + clientes.get(x).getNumeroSocio());
-			System.out.println("Descuento: " + clientes.get(x).getDto() + "% \n");
+			System.out.println("Descuento: " + clientes.get(x).getDto() + "%\n");
 		}
 
 /*----------------------------------------------------------PRODUCTOS------------------------------------------------------------------*/
 
 		sc = new Scanner(System.in);	
 		System.out.println("\nINTRODUCCION DE LOS PRODUCTOS\n");
-		String cadena = "";
 		
 		ArrayList <Manzana> manzanas = new ArrayList <Manzana>();
 		for (int x = 0; x < 2; x++)	{
-
-			Manzana manzanaObjeto = new Manzana();
-
 			System.out.println("Manzana nº" + (x + 1));
+			Manzana manzanaObjeto = new Manzana();
 			System.out.print("Tipo de manzana: ");
 			manzanaObjeto.setTipoManzana(sc.next());
 			System.out.print("Procedencia: ");
@@ -101,11 +94,11 @@ public class Almacen {
 			System.out.print("Euro/Kilo: ");
 			manzanaObjeto.setEurosKilo(sc.nextDouble());
 			System.out.print("Introduce el nombre del distribuidor: ");
-			cadena = sc.next();
+			String distribuidor = sc.next();
 			System.out.print("\n");
 
 			for(int i = 0; i < distribuidores.size(); i++) {
-				if (cadena.equalsIgnoreCase(distribuidores.get(i).getNombre())) {
+				if (distribuidor.equalsIgnoreCase(distribuidores.get(i).getNombre())) {
 					manzanaObjeto.setDistribuidor(distribuidores.get(i));
 				}
 			}
@@ -113,26 +106,28 @@ public class Almacen {
 		}
 		
 		ArrayList <Lechuga> lechugas = new ArrayList <Lechuga>();
-		System.out.println("Lechuga nº1");
-		Lechuga lechugaObjeto = new Lechuga();
-		System.out.print("Tipo de lechuga: ");
-		lechugaObjeto.setTipoLechuga(sc.next());
-		System.out.print("Procedencia: ");
-		lechugaObjeto.setProcedencia(sc.next());
-		System.out.print("Color: ");
-		lechugaObjeto.setColor(sc.next());
-		System.out.print("Euro/Unidad: ");
-		lechugaObjeto.setEurosUnidad(sc.nextDouble());	
-		System.out.print("Introduce el nombre del distribuidor: ");
-		cadena = sc.next();
-		System.out.print("\n");
+		for (int x = 0; x < 1; x++)	{
+			System.out.println("Lechuga nº" + (x + 1));
+			Lechuga lechugaObjeto = new Lechuga();
+			System.out.print("Tipo de lechuga: ");
+			lechugaObjeto.setTipoLechuga(sc.next());
+			System.out.print("Procedencia: ");
+			lechugaObjeto.setProcedencia(sc.next());
+			System.out.print("Color: ");
+			lechugaObjeto.setColor(sc.next());
+			System.out.print("Euro/Unidad: ");
+			lechugaObjeto.setEurosUnidad(sc.nextDouble());	
+			System.out.print("Introduce el nombre del distribuidor: ");
+			String distribuidor = sc.next();
+			System.out.print("\n");
 
-		for(int i = 0; i < distribuidores.size(); i++) {
-			if (cadena.equalsIgnoreCase(distribuidores.get(i).getNombre())){
-				lechugaObjeto.setDistribuidor(distribuidores.get(i));
+			for(int i = 0; i < distribuidores.size(); i++) {
+				if (distribuidor.equalsIgnoreCase(distribuidores.get(i).getNombre())){
+					lechugaObjeto.setDistribuidor(distribuidores.get(i));
+				}
 			}
+			lechugas.add(lechugaObjeto);
 		}
-		lechugas.add(lechugaObjeto);
 		
 		//leche
 		ArrayList <Leche> leches = new ArrayList <Leche>();
@@ -146,11 +141,11 @@ public class Almacen {
 			System.out.print("Euro/Litro: ");
 			lecheObjeto.setEurosLitro(sc.nextDouble());
 			System.out.print("Introduce el nombre del distribuidor: ");
-			cadena = sc.next();
+			String distribuidor = sc.next();
 			System.out.print("\n");
 
 			for(int i = 0; i < distribuidores.size(); i++) {
-				if (cadena.equalsIgnoreCase(distribuidores.get(i).getNombre())){
+				if (distribuidor.equalsIgnoreCase(distribuidores.get(i).getNombre())){
 					lecheObjeto.setDistribuidor(distribuidores.get(i));
 				}
 			}
@@ -165,15 +160,13 @@ public class Almacen {
 		System.out.print("Introduzca el número de socio: ");
 		numSocio = sc.nextDouble();
 
-		frClientes = new FileReader("clientes.txt");
-		br = new BufferedReader(frClientes);
-		palabras = null;
+		br = new BufferedReader(new FileReader("clientes.txt"));
 		Cliente clienteObjeto2 = new Cliente();
-		while((s = br.readLine()) != null) {
+		while((linea = br.readLine()) != null) {
 
 			Direccion direccionObjeto2 = new Direccion();
 
-			palabras = s.split(", ");
+			String [] palabras = linea.split(", ");
 
 			if (numSocio == Double.parseDouble(palabras[4])) {
 
@@ -182,7 +175,7 @@ public class Almacen {
 				System.out.println("Nombre: " + palabras[0]);
 				clienteObjeto2.setNombre(palabras[0]);
 				System.out.println("Apellidos: " + palabras[1]);
-				clienteObjeto2.setApellidos(palabras[1]);
+				clienteObjeto2.setApellido(palabras[1]);
 		 		System.out.println("Dirección: " + palabras[3]);
 		 		direccionObjeto2.setDireccion(palabras[3]);
 		 		clienteObjeto2.setDireccion(direccionObjeto2);

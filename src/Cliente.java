@@ -14,11 +14,11 @@ public class Cliente extends Persona {
 		return this.nombre;
 	}
 
-	public void setApellidos(String apellidoIntroducido){
+	public void setApellido(String apellidoIntroducido){
 		this.apellido = apellidoIntroducido;
 	}
 
-	public String getApellidos(){
+	public String getApellido(){
 		return this.apellido;
 	}
 
