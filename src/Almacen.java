@@ -12,8 +12,8 @@ public class Almacen {
 	public static void main (String args[]) throws IOException {		
 
 		String linea;
-		ArrayList <Distribuidor> distribuidores = new ArrayList <Distribuidor> ();
-		ArrayList <Cliente> clientes = new ArrayList <Cliente> ();
+		ArrayList<Distribuidor> distribuidores = new ArrayList<Distribuidor> ();
+		ArrayList<Cliente> clientes = new ArrayList<Cliente> ();
 /*--------------------------------------------------------DISTRIBUIDORES---------------------------------------------------------------*/
 
 		br = new BufferedReader(new FileReader("distribuidores.txt"));			
@@ -81,7 +81,7 @@ public class Almacen {
 		sc = new Scanner(System.in);	
 		System.out.println("\nINTRODUCCION DE LOS PRODUCTOS\n");
 		
-		ArrayList <Manzana> manzanas = new ArrayList <Manzana>();
+		ArrayList<Manzana> manzanas = new ArrayList<Manzana>();
 		for (int x = 0; x < 2; x++)	{
 			System.out.println("Manzana nº" + (x + 1));
 			Manzana manzanaObjeto = new Manzana();
@@ -105,7 +105,7 @@ public class Almacen {
 			manzanas.add(manzanaObjeto);			
 		}
 		
-		ArrayList <Lechuga> lechugas = new ArrayList <Lechuga>();
+		ArrayList<Lechuga> lechugas = new ArrayList<Lechuga>();
 		for (int x = 0; x < 1; x++)	{
 			System.out.println("Lechuga nº" + (x + 1));
 			Lechuga lechugaObjeto = new Lechuga();
@@ -130,7 +130,7 @@ public class Almacen {
 		}
 		
 		//leche
-		ArrayList <Leche> leches = new ArrayList <Leche>();
+		ArrayList<Leche> leches = new ArrayList<Leche>();
 		for (int x = 0; x < 2; x++) {
 			System.out.println("Leche nº" + (x + 1));
 			Leche lecheObjeto = new Leche();
@@ -237,6 +237,6 @@ public class Almacen {
 		cestaObjeto.setLechugas(lechugas);
 		cestaObjeto.setManzanas(manzanas);
 
-		System.out.println("Importe total con el descuento añadido: " + cestaObjeto.importeCompra() + " €");
+		System.out.println("Importe total con el descuento (" + clienteObjeto2.getDto() + " %) añadido: " + cestaObjeto.importeCompra() + " €");
 	}
 }
