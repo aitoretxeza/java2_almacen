@@ -244,8 +244,6 @@ public class Almacen {
 		cestaObjeto.setLechugas(lechugas);
 		cestaObjeto.setManzanas(manzanas);
 
-
-		System.out.println("Descuento: " + clienteObjeto2.getDto() + " %");
 		System.out.println("Importe total con el descuento añadido: " + cestaObjeto.importeCompra() + " €");
 	}
 }
