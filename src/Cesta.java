@@ -7,22 +7,21 @@ public class Cesta {
 	private ArrayList<Leche> leches = new ArrayList<Leche>();
 	private ArrayList<Lechuga> lechugas = new ArrayList<Lechuga>();
 	private ArrayList<Manzana> manzanas = new ArrayList<Manzana>();
-	private Double importeCompra;
 
 	//métodos getter y setter
 
-	public void setPropiedades (String propiedadesIntroducido) {
+	public void setPropiedades (String propiedadesIntroducido){
 		this.propiedades = propiedadesIntroducido;
 	}
 
-	public String getPropiedades() {
+	public String getPropiedades(){
 		return this.propiedades;
 	}
-	public void setCliente (Cliente clienteIntroducido) {
+	public void setCliente (Cliente clienteIntroducido){
 		this.cliente = clienteIntroducido;
 	}
 
-	public Cliente getCliente() {
+	public Cliente getCliente(){
 		return this.cliente;
 	}
 
@@ -30,7 +29,7 @@ public class Cesta {
 		this.leches = lechesIntroducido;
 	}
 		
-	public ArrayList getLeches (){
+	public ArrayList<Leche> getLeches(){
 		return this.leches;
 	}
 
@@ -38,7 +37,7 @@ public class Cesta {
 		this.lechugas = lechugasIntroducido;
 	}
 		
-	public ArrayList getLechugas (){
+	public ArrayList<Lechuga> getLechugas(){
 		return this.lechugas;
 	}
 
@@ -46,31 +45,30 @@ public class Cesta {
 		this.manzanas = manzanasIntroducido;
 	}
 		
-	public ArrayList getManzanas (){
+	public ArrayList<Manzana> getManzanas(){
 		return this.manzanas;
 	}
 
-	public double importeCompra () {
+	public double importeCompra(){
 
-		double importeLeche = 0;
-		double importeLechuga = 0;
-		double importeManzana = 0;
-		double resultado;
+		double importeLeche = 0, importeLechuga = 0, importeManzana = 0, importeTotal = 0, resultado;
 
-		for (int x = 0; x < this.leches.size(); x++) {
+		for (int x = 0; x < this.leches.size(); x++){
 			importeLeche = importeLeche + leches.get(x).getEurosLitro();
 		}
 
-		for (int x = 0; x < this.lechugas.size(); x++) {
+		for (int x = 0; x < this.lechugas.size(); x++){
 			importeLechuga = importeLechuga + lechugas.get(x).getEurosUnidad();
 		}
 
-		for (int x = 0; x < this.manzanas.size(); x++) {
+		for (int x = 0; x < this.manzanas.size(); x++){
 			importeManzana = importeManzana + manzanas.get(x).getEurosKilo();
 		}
+		
+		importeTotal = importeLeche + importeLechuga + importeManzana;
 
-		resultado = (importeLeche + importeLechuga + importeManzana) - ((cliente.getDto() * (importeLeche + importeLechuga + importeManzana)) / 100);
-
+		resultado = (importeTotal) - ((cliente.getDto() * (importeTotal)) / 100);
+		
 		return resultado;
  	}
 }

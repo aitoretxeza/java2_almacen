@@ -6,12 +6,15 @@ import java.util.Scanner;
 
 public class Almacen {
 
+	private static BufferedReader br;
+	private static Scanner sc;
+
 	public static void main (String args[]) throws IOException {
 
 /*--------------------------------------------------------DISTRIBUIDORES---------------------------------------------------------------*/
 
 		FileReader frDistribuidores = new FileReader("distribuidores.txt");
-		BufferedReader br = new BufferedReader(frDistribuidores); 
+		br = new BufferedReader(frDistribuidores); 
 		String [] palabras = null;
 		String s;
 		ArrayList <Distribuidor> distribuidores = new ArrayList <Distribuidor> ();		
@@ -79,7 +82,7 @@ public class Almacen {
 
 /*----------------------------------------------------------PRODUCTOS------------------------------------------------------------------*/
 
-		Scanner sc = new Scanner(System.in);	
+		sc = new Scanner(System.in);	
 		System.out.println("\nINTRODUCCION DE LOS PRODUCTOS\n");
 		String cadena = "";
 		
@@ -156,7 +159,7 @@ public class Almacen {
 
 /*------------------------------------------------------------CESTA--------------------------------------------------------------------*/
 
-		Double numSocio, dtoSocio;
+		Double numSocio;
 		Cesta cestaObjeto = new Cesta();		
 
 		System.out.print("Introduzca el número de socio: ");
@@ -164,10 +167,10 @@ public class Almacen {
 
 		frClientes = new FileReader("clientes.txt");
 		br = new BufferedReader(frClientes);
-		palabras = null;	
+		palabras = null;
+		Cliente clienteObjeto2 = new Cliente();
 		while((s = br.readLine()) != null) {
 
-			Cliente clienteObjeto2 = new Cliente();
 			Direccion direccionObjeto2 = new Direccion();
 
 			palabras = s.split(", ");
@@ -186,7 +189,6 @@ public class Almacen {
 		 		clienteObjeto2.setNumeroSocio(Double.parseDouble(palabras[4]));
 				System.out.println("Descuento: " + Double.parseDouble(palabras[5]) + "\n");
 				clienteObjeto2.setDto(Double.parseDouble(palabras[5]));
-				dtoSocio = Double.parseDouble(palabras[5]);
 
 
 				cestaObjeto.setCliente(clienteObjeto2);
@@ -242,6 +244,8 @@ public class Almacen {
 		cestaObjeto.setLechugas(lechugas);
 		cestaObjeto.setManzanas(manzanas);
 
+
+		System.out.println("Descuento: " + clienteObjeto2.getDto() + " %");
 		System.out.println("Importe total con el descuento añadido: " + cestaObjeto.importeCompra() + " €");
 	}
 }

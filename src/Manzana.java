@@ -1,50 +1,47 @@
-public class Manzana {
+public class Manzana extends Producto {
 
-	private String tipoManzana;
-	private String procedencia;
 	private String color;
 	private Double eurosKilo;
-	private Distribuidor distribuidor;
 
 	//métodos getter y setter
 
-	public void setTipoManzana (String tipoManzanaIntroducido) {
-		this.tipoManzana = tipoManzanaIntroducido;
+	public void setTipoManzana(String tipoManzanaIntroducido){
+		this.tipo = tipoManzanaIntroducido;
 	}
 
-	public String getTipoManzana () {
-		return this.tipoManzana;
+	public String getTipoManzana(){
+		return this.tipo;
 	}
 
-	public void setProcedencia (String procedenciaIntroducido) {
+	public void setProcedencia(String procedenciaIntroducido){
 		this.procedencia = procedenciaIntroducido;
 	}
 
-	public String getProcedencia () {
+	public String getProcedencia(){
 		return this.procedencia;
 	}
 
-	public void setColor (String colorIntroducido) {
+	public void setColor(String colorIntroducido){
 		this.color = colorIntroducido;
 	}
 
-	public String getColor () {
+	public String getColor(){
 		return this.color;
 	}
 
-	public void setEurosKilo (Double eurosKiloIntroducido) {
+	public void setEurosKilo(Double eurosKiloIntroducido){
 		this.eurosKilo = eurosKiloIntroducido;
 	}
 
-	public Double getEurosKilo () {
+	public Double getEurosKilo(){
 		return this.eurosKilo;
 	}
 
-	public void setDistribuidor (Distribuidor distribuidorIntroducido) {
+	public void setDistribuidor(Distribuidor distribuidorIntroducido){
 		this.distribuidor = distribuidorIntroducido;
 	}
 
-	public Distribuidor getDistribuidor () {
+	public Distribuidor getDistribuidor(){
 		return this.distribuidor;
 	}
 }

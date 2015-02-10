@@ -1,41 +1,40 @@
 public class Distribuidor {
 
-	private String nombre;
-	private String cif;
+	private String nombre, cif;
 	private Direccion direccion;
 	private Contacto personaContacto;
 
 	//metodos getter y setter
 
-	public void setNombre(String nombreIntroducido) {
+	public void setNombre(String nombreIntroducido){
 		this.nombre = nombreIntroducido;
 	}
 
-	public String getNombre() {
+	public String getNombre(){
 		return this.nombre;
 	}
 
-	public void setCif(String cifIntroducido) {
+	public void setCif(String cifIntroducido){
 		this.cif = cifIntroducido;
 	}
 
-	public String getCif() {
+	public String getCif(){
 		return this.cif;
 	}
 
-	public void setDireccion(Direccion direccionIntroducido) {
+	public void setDireccion(Direccion direccionIntroducido){
 		this.direccion = direccionIntroducido;
 	}
 
-	public Direccion getDireccion() {
+	public Direccion getDireccion(){
 		return this.direccion;
 	}
 
-	public void setPersonaContacto(Contacto personaContactoIntroducido) {
+	public void setPersonaContacto(Contacto personaContactoIntroducido){
 		this.personaContacto = personaContactoIntroducido;
 	}
 
-	public Contacto getPersonaContacto() {
+	public Contacto getPersonaContacto(){
 		return this.personaContacto;
 	}
 }
