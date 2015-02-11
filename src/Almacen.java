@@ -79,7 +79,7 @@ public class Almacen {
 /*----------------------------------------------------------PRODUCTOS------------------------------------------------------------------*/
 
 		sc = new Scanner(System.in);
-		System.out.println("\nINTRODUCCION DE LOS PRODUCTOS\n");
+		System.out.println("\nINTRODUCCION DE LOS DATOS DE LOS PRODUCTOS\n");
 
 		System.out.print("¿Cuantas clases de manzana desea? ");
 		int cantidad = sc.next();
