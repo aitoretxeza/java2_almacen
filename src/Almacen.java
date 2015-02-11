@@ -11,12 +11,12 @@ public class Almacen {
 
 	public static void main (String args[]) throws IOException {		
 
-		String linea;
+		/*String linea;
 		ArrayList<Distribuidor> distribuidores = new ArrayList<Distribuidor> ();
-		ArrayList<Cliente> clientes = new ArrayList<Cliente> ();
+		ArrayList<Cliente> clientes = new ArrayList<Cliente> ();*/
 /*--------------------------------------------------------DISTRIBUIDORES---------------------------------------------------------------*/
 
-		br = new BufferedReader(new FileReader("distribuidores.txt"));			
+		/*br = new BufferedReader(new FileReader("distribuidores.txt"));
 		while((linea = br.readLine()) != null) { 
 
 			Distribuidor distribuidorObjeto = new Distribuidor();
@@ -43,11 +43,11 @@ public class Almacen {
 			System.out.println("CIF: " + distribuidores.get(x).getCif());
 			System.out.println("Dirección: " + distribuidores.get(x).getDireccion().getDireccion());
 			System.out.println("Persona de contacto: " + distribuidores.get(x).getPersonaContacto().getNombre() + " " + distribuidores.get(x).getPersonaContacto().getApellido() + ", tlf.: " + distribuidores.get(x).getPersonaContacto().getTelefono() + "\n");
-		}
+		}*/
 
 /*----------------------------------------------------------CLIENTES------------------------------------------------------------------*/
 
-		br = new BufferedReader(new FileReader("clientes.txt"));		
+		/*br = new BufferedReader(new FileReader("clientes.txt"));		
 		while((linea = br.readLine()) != null) {
 
 			Cliente clienteObjeto = new Cliente();
@@ -74,43 +74,25 @@ public class Almacen {
 			System.out.println("Dirección: " + clientes.get(x).getDireccion().getDireccion());
 			System.out.println("Número de socio: " + clientes.get(x).getNumeroSocio());
 			System.out.println("Descuento: " + clientes.get(x).getDto() + "%\n");
-		}
+		}*/
 
 /*----------------------------------------------------------PRODUCTOS------------------------------------------------------------------*/
 
-		sc = new Scanner(System.in);	
+		/*sc = new Scanner(System.in);*/	
 		System.out.println("\nINTRODUCCION DE LOS PRODUCTOS\n");
 		
-		ArrayList<Manzana> manzanas = new ArrayList<Manzana>();
-		for (int x = 0; x < 2; x++)	{
-			System.out.println("Manzana nº" + (x + 1));
-			Manzana manzanaObjeto = new Manzana();
-			System.out.print("Tipo de manzana: ");
-			manzanaObjeto.setTipoManzana(sc.next());
-			System.out.print("Procedencia: ");
-			manzanaObjeto.setProcedencia(sc.next());
-			System.out.print("Color: ");
-			manzanaObjeto.setColor(sc.next());
-			System.out.print("Euro/Kilo: ");
-			manzanaObjeto.setEurosKilo(sc.nextDouble());
-			System.out.print("Introduce el nombre del distribuidor: ");
-			String distribuidor = sc.next();
-			System.out.print("\n");
-
-			for(int i = 0; i < distribuidores.size(); i++) {
-				if (distribuidor.equalsIgnoreCase(distribuidores.get(i).getNombre())) {
-					manzanaObjeto.setDistribuidor(distribuidores.get(i));
-				}
-			}
-			manzanas.add(manzanaObjeto);			
-		}
+		Manzana manzanaObjeto = new Manzana();
+			
+		manzanaObjeto.guardarManzana();
+			
+		//manzanaObjeto.mostrarManzana();
 		
-		ArrayList<Lechuga> lechugas = new ArrayList<Lechuga>();
+		/*ArrayList<Lechuga> lechugas = new ArrayList<Lechuga>();
 		for (int x = 0; x < 1; x++)	{
 			System.out.println("Lechuga nº" + (x + 1));
 			Lechuga lechugaObjeto = new Lechuga();
 			System.out.print("Tipo de lechuga: ");
-			lechugaObjeto.setTipoLechuga(sc.next());
+			lechugaObjeto.setTipo(sc.next());
 			System.out.print("Procedencia: ");
 			lechugaObjeto.setProcedencia(sc.next());
 			System.out.print("Color: ");
@@ -150,11 +132,11 @@ public class Almacen {
 				}
 			}
 			leches.add(lecheObjeto);	
-		}
+		}*/
 
 /*------------------------------------------------------------CESTA--------------------------------------------------------------------*/
 
-		Double numSocio;
+		/*Double numSocio;
 		Cesta cestaObjeto = new Cesta();		
 
 		System.out.print("Introduzca el número de socio: ");
@@ -192,7 +174,7 @@ public class Almacen {
 		System.out.println("MANZANAS \n");
 		for(int j = 0; j < manzanas.size(); j++) {
 			System.out.println("Manzana nº" + (j + 1));
-			System.out.println("Tipo de manzana: " + (manzanas.get(j).getTipoManzana()));
+			System.out.println("Tipo de manzana: " + (manzanas.get(j).getTipo()));
 			System.out.println("Procedencia: " + (manzanas.get(j).getProcedencia()));
 			System.out.println("Color: " + (manzanas.get(j).getColor()));
 			System.out.println("Euro/Kilo: " + (manzanas.get(j).getEurosKilo()) + " €/Kg");
@@ -207,7 +189,7 @@ public class Almacen {
 		System.out.println("LECHUGAS \n");
 		for(int j = 0; j < lechugas.size(); j++) {
 			System.out.println("Lechuga nº" + (j + 1));
-			System.out.println("Tipo de lechuga: " + (lechugas.get(j).getTipoLechuga()));
+			System.out.println("Tipo de lechuga: " + (lechugas.get(j).getTipo()));
 			System.out.println("Procedencia: " + (lechugas.get(j).getProcedencia()));
 			System.out.println("Color: " + (lechugas.get(j).getColor()));
 			System.out.println("Euro/Unidad: " + (lechugas.get(j).getEurosUnidad()) + " €/U");
@@ -237,6 +219,6 @@ public class Almacen {
 		cestaObjeto.setLechugas(lechugas);
 		cestaObjeto.setManzanas(manzanas);
 
-		System.out.println("Importe total con el descuento (" + clienteObjeto2.getDto() + " %) añadido: " + cestaObjeto.importeCompra() + " €");
+		System.out.println("Importe total con el descuento (" + clienteObjeto2.getDto() + " %) añadido: " + cestaObjeto.importeCompra() + " €");*/
 	}
 }

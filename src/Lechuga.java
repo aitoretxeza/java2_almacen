@@ -5,22 +5,6 @@ public class Lechuga extends Producto {
 
 	//métodos getter y setter
 
-	public void setTipoLechuga(String tipoLechugaIntroducido){
-		this.tipo = tipoLechugaIntroducido;
-	}
-
-	public String getTipoLechuga(){
-		return this.tipo;
-	}
-
-	public void setProcedencia(String procedenciaIntroducido){
-		this.procedencia = procedenciaIntroducido;
-	}
-
-	public String getProcedencia(){
-		return this.procedencia;
-	}
-
 	public void setColor(String colorIntroducido){
 		this.color = colorIntroducido;
 	}
@@ -35,13 +19,5 @@ public class Lechuga extends Producto {
 
 	public Double getEurosUnidad(){
 		return this.eurosUnidad;
-	}
-
-	public void setDistribuidor(Distribuidor distribuidorIntroducido){
-		this.distribuidor = distribuidorIntroducido;
-	}
-
-	public Distribuidor getDistribuidor(){
-		return this.distribuidor;
 	}
 }
