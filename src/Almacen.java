@@ -78,61 +78,47 @@ public class Almacen {
 
 /*----------------------------------------------------------PRODUCTOS------------------------------------------------------------------*/
 
-		/*sc = new Scanner(System.in);*/	
+		sc = new Scanner(System.in);
 		System.out.println("\nINTRODUCCION DE LOS PRODUCTOS\n");
-		
-		Manzana manzanaObjeto = new Manzana();
-			
-		manzanaObjeto.guardarManzana();
-			
-		//manzanaObjeto.mostrarManzana();
-		
-		/*ArrayList<Lechuga> lechugas = new ArrayList<Lechuga>();
-		for (int x = 0; x < 1; x++)	{
-			System.out.println("Lechuga nº" + (x + 1));
-			Lechuga lechugaObjeto = new Lechuga();
-			System.out.print("Tipo de lechuga: ");
-			lechugaObjeto.setTipo(sc.next());
-			System.out.print("Procedencia: ");
-			lechugaObjeto.setProcedencia(sc.next());
-			System.out.print("Color: ");
-			lechugaObjeto.setColor(sc.next());
-			System.out.print("Euro/Unidad: ");
-			lechugaObjeto.setEurosUnidad(sc.nextDouble());	
-			System.out.print("Introduce el nombre del distribuidor: ");
-			String distribuidor = sc.next();
-			System.out.print("\n");
 
-			for(int i = 0; i < distribuidores.size(); i++) {
-				if (distribuidor.equalsIgnoreCase(distribuidores.get(i).getNombre())){
-					lechugaObjeto.setDistribuidor(distribuidores.get(i));
-				}
-			}
-			lechugas.add(lechugaObjeto);
+		System.out.print("¿Cuantas clases de manzana desea? ");
+		int cantidad = sc.next();
+
+		for (int x = 0; x < cantidad; x++)	{
+			System.out.println("Manzana nº" + (x + 1));
+
+			Manzana manzanaObjeto = new Manzana();
+
+			manzanaObjeto.guardarManzana();
+
+			manzanaObjeto.mostrarManzana();
 		}
-		
-		//leche
-		ArrayList<Leche> leches = new ArrayList<Leche>();
-		for (int x = 0; x < 2; x++) {
-			System.out.println("Leche nº" + (x + 1));
-			Leche lecheObjeto = new Leche();
-			System.out.print("Tipo de leche: ");
-			lecheObjeto.setTipo(sc.next());
-			System.out.print("Procedencia: ");
-			lecheObjeto.setProcedencia(sc.next());
-			System.out.print("Euro/Litro: ");
-			lecheObjeto.setEurosLitro(sc.nextDouble());
-			System.out.print("Introduce el nombre del distribuidor: ");
-			String distribuidor = sc.next();
-			System.out.print("\n");
 
-			for(int i = 0; i < distribuidores.size(); i++) {
-				if (distribuidor.equalsIgnoreCase(distribuidores.get(i).getNombre())){
-					lecheObjeto.setDistribuidor(distribuidores.get(i));
-				}
-			}
-			leches.add(lecheObjeto);	
-		}*/
+		System.out.print("¿Cuantas clases de lechuga desea? ");
+		cantidad = sc.next();
+
+		for (int x = 0; x < cantidad; x++)	{
+			System.out.println("Lechuga nº" + (x + 1));
+
+			Lechuga lechugaObjeto = new Lechuga();
+
+			lechugaObjeto.guardarLechuga();
+
+			lechugaObjeto.mostrarLechuga();
+		}
+
+		System.out.print("¿Cuantas clases de leche desea? ");
+		cantidad = sc.next();
+
+		for (int x = 0; x < cantidad; x++)	{
+			System.out.println("Leche nº" + (x + 1));
+
+			Leche lecheObjeto = new Leche();
+
+			lecheObjeto.guardarLeche();
+
+			lecheObjeto.mostrarLeche();
+		}
 
 /*------------------------------------------------------------CESTA--------------------------------------------------------------------*/
 

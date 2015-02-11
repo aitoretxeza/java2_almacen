@@ -30,13 +30,13 @@ public class Manzana extends Producto {
 	
 	//metodos para guardar una manzana
 	
-	public void guardarManzana() throws IOException{
+	public void guardarManzana(){
 		
-		br = new BufferedReader(new FileReader("distribuidores.txt"));
+		/*br = new BufferedReader(new FileReader("distribuidores.txt"));
 		String linea;
 		Distribuidor distribuidorObjeto = new Distribuidor();
 		Direccion direccionObjeto = new Direccion();
-		Contacto contactoObjeto = new Contacto();
+		Contacto contactoObjeto = new Contacto();*/
 		
 		System.out.print("Tipo de manzana: ");
 		this.setTipo(sc.next());
@@ -46,7 +46,7 @@ public class Manzana extends Producto {
 		this.setColor(sc.next());
 		System.out.print("Euro/Kilo: ");
 		this.setEurosKilo(sc.nextDouble());
-		System.out.print("Introduce el nombre del distribuidor: ");
+		/*System.out.print("Introduce el nombre del distribuidor: ");
 		String distribuidorNombre = sc.next();
 		
 		while((linea = br.readLine()) != null) { 
@@ -74,7 +74,7 @@ public class Manzana extends Producto {
 				
 				System.out.print("ERROR\n");
 			}
-		}
+		}*/
 	}
 	
 	//metodo para monstrar en pantalla una manzana
@@ -85,11 +85,11 @@ public class Manzana extends Producto {
 		System.out.println("Procedencia: " + (this.getProcedencia()));
 		System.out.println("Color: " + (this.getColor()));
 		System.out.println("Precio: " + (this.getEurosKilo()) + " €/Kg");
-		System.out.println("-- DISTRIBUIDOR --");
+		/*System.out.println("-- DISTRIBUIDOR --");
 		System.out.println("Nombre: " + (this.getDistribuidor().getNombre()));
 		System.out.println("CIF: " + this.getDistribuidor().getCif());
 		System.out.println("Dirección: " + this.getDistribuidor().getDireccion().getDireccion());
 		System.out.println("Persona de contacto: " + this.getDistribuidor().getPersonaContacto().getNombre() + " " + this.getDistribuidor().getPersonaContacto().getApellido() + ", tlf.: " + this.getDistribuidor().getPersonaContacto().getTelefono());
-		System.out.print("\n");
+		System.out.print("\n");*/
 	}
 }
