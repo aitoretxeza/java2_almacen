@@ -1,5 +1,5 @@
 
-public abstract class Producto {	
+public class Producto {	
 
 	protected String tipo, procedencia;
 	protected Distribuidor distribuidor;
