@@ -77,8 +77,7 @@ public class Lechuga extends Producto {
 
 	public void mostrarLechuga(){
 
-		System.out.print("\n");
-		System.out.println("Tipo de lechuga: " + (this.getTipo()));
+		System.out.println("\nTipo de lechuga: " + (this.getTipo()));
 		System.out.println("Procedencia: " + (this.getProcedencia()));
 		System.out.println("Color: " + (this.getColor()));
 		System.out.println("Precio: " + (this.getEurosUnidad()) + " €/U");

@@ -66,8 +66,7 @@ public class Leche extends Producto {
 
 	public void mostrarLeche(){
 		
-		System.out.print("\n");
-		System.out.println("Tipo de leche: " + (this.getTipo()));
+		System.out.println("\nTipo de leche: " + (this.getTipo()));
 		System.out.println("Procedencia: " + (this.getProcedencia()));
 		System.out.println("Precio: " + (this.getEurosLitro()) + " €/l");
 		System.out.println("-- DISTRIBUIDOR --");

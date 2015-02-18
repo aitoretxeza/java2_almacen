@@ -77,8 +77,7 @@ public class Manzana extends Producto {
 	
 	public void mostrarManzana(){
 		
-		System.out.print("\n");
-		System.out.println("Tipo de manzana: " + (this.getTipo()));
+		System.out.println("\nTipo de manzana: " + (this.getTipo()));
 		System.out.println("Procedencia: " + (this.getProcedencia()));
 		System.out.println("Color: " + (this.getColor()));
 		System.out.println("Precio: " + (this.getEurosKilo()) + " €/Kg");

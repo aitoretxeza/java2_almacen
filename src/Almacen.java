@@ -266,53 +266,37 @@ public class Almacen {
 						}
 					}
 
-					System.out.println("\n INFROMACIÓN DE LOS PRODUCTOS \n");
-					System.out.println("LECHES \n");
-					for(int j = 0; j < leches.size(); j++) {
-						System.out.println("Leche nº" + (j + 1));
-						System.out.println("Tipo de leche: " + (leches.get(j).getTipo()));
-						System.out.println("Procedencia: " + (leches.get(j).getProcedencia()));
-						System.out.println("Euro/Litro: " + (leches.get(j).getEurosLitro()) + " €/l");
-						System.out.println("-- DISTRIBUIDOR --");
-						System.out.println("Nombre: " + (leches.get(j).getDistribuidor().getNombre()));
-						System.out.println("CIF: " + leches.get(j).getDistribuidor().getCif());
-						System.out.println("Dirección: " + leches.get(j).getDistribuidor().getDireccion().getDireccion());
-						System.out.println("Persona de contacto: " + leches.get(j).getDistribuidor().getPersonaContacto().getNombre() + " " + leches.get(j).getDistribuidor().getPersonaContacto().getApellido() + ", tlf.: " + leches.get(j).getDistribuidor().getPersonaContacto().getTelefono());
-						System.out.print("\n");
+					System.out.println("\nINFROMACIÓN DE LOS PRODUCTOS");
+					
+					if (leches.size() != 0) {
+						System.out.println("\nLECHES");
+						for(int x = 0; x < leches.size(); x++) {
+							
+							leches.get(x).mostrarLeche();
+						}
 					}
-					System.out.println("LECHUGAS \n");
-					for(int j = 0; j < lechugas.size(); j++) {
-						System.out.println("Lechuga nº" + (j + 1));
-						System.out.println("Tipo de lechuga: " + (lechugas.get(j).getTipo()));
-						System.out.println("Procedencia: " + (lechugas.get(j).getProcedencia()));
-						System.out.println("Color: " + (lechugas.get(j).getColor()));
-						System.out.println("Euro/Unidad: " + (lechugas.get(j).getEurosUnidad()) + " €/U");
-						System.out.println("-- DISTRIBUIDOR --");
-						System.out.println("Nombre: " + (lechugas.get(j).getDistribuidor().getNombre()));
-						System.out.println("CIF: " + lechugas.get(j).getDistribuidor().getCif());
-						System.out.println("Dirección: " + lechugas.get(j).getDistribuidor().getDireccion().getDireccion());
-						System.out.println("Persona de contacto: " + lechugas.get(j).getDistribuidor().getPersonaContacto().getNombre() + " " + lechugas.get(j).getDistribuidor().getPersonaContacto().getApellido() + ", tlf.: " + lechugas.get(j).getDistribuidor().getPersonaContacto().getTelefono());
-						System.out.print("\n");
+					
+					if (lechugas.size() != 0) {
+						System.out.println("\nLECHUGAS");
+						for(int x = 0; x < lechugas.size(); x++) {
+							
+							lechugas.get(x).mostrarLechuga();
+						}
 					}
-					System.out.println("MANZANAS \n");
-					for(int j = 0; j < manzanas.size(); j++) {
-						System.out.println("Manzana nº" + (j + 1));
-						System.out.println("Tipo de manzana: " + (manzanas.get(j).getTipo()));
-						System.out.println("Procedencia: " + (manzanas.get(j).getProcedencia()));
-						System.out.println("Color: " + (manzanas.get(j).getColor()));
-						System.out.println("Euro/Kilo: " + (manzanas.get(j).getEurosKilo()) + " €/Kg");
-						System.out.println("-- DISTRIBUIDOR --");
-						System.out.println("Nombre: " + (manzanas.get(j).getDistribuidor().getNombre()));
-						System.out.println("CIF: " + manzanas.get(j).getDistribuidor().getCif());
-						System.out.println("Dirección: " + manzanas.get(j).getDistribuidor().getDireccion().getDireccion());
-						System.out.println("Persona de contacto: " + manzanas.get(j).getDistribuidor().getPersonaContacto().getNombre() + " " + manzanas.get(j).getDistribuidor().getPersonaContacto().getApellido() + ", tlf.: " + manzanas.get(j).getDistribuidor().getPersonaContacto().getTelefono());
-						System.out.print("\n");
+					
+					if (manzanas.size() != 0) {
+						System.out.println("\nMANZANAS");
+						for(int x = 0; x < manzanas.size(); x++) {
+							
+							manzanas.get(x).mostrarManzana();
+						}
 					}
+					
 					cestaObjeto.setLeches(leches);
 					cestaObjeto.setLechugas(lechugas);
 					cestaObjeto.setManzanas(manzanas);
 
-					System.out.println("Importe total con el descuento (" + clienteObjeto2.getDto() + " %) añadido: " + cestaObjeto.importeCompra() + " €");
+					System.out.println("\nImporte total con el descuento (" + clienteObjeto2.getDto() + " %) añadido: " + cestaObjeto.importeCompra() + " €");
 					break;
 				}
 /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
