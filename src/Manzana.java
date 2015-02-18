@@ -77,6 +77,7 @@ public class Manzana extends Producto {
 	
 	public void mostrarManzana(){
 		
+		System.out.print("\n");
 		System.out.println("Tipo de manzana: " + (this.getTipo()));
 		System.out.println("Procedencia: " + (this.getProcedencia()));
 		System.out.println("Color: " + (this.getColor()));
@@ -86,6 +87,5 @@ public class Manzana extends Producto {
 		System.out.println("CIF: " + this.getDistribuidor().getCif());
 		System.out.println("Dirección: " + this.getDistribuidor().getDireccion().getDireccion());
 		System.out.println("Persona de contacto: " + this.getDistribuidor().getPersonaContacto().getNombre() + " " + this.getDistribuidor().getPersonaContacto().getApellido() + ", tlf.: " + this.getDistribuidor().getPersonaContacto().getTelefono());
-		System.out.print("\n");
 	}
 }

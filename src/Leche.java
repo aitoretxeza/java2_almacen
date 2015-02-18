@@ -65,7 +65,8 @@ public class Leche extends Producto {
 	//metodo para monstrar en pantalla una leche
 
 	public void mostrarLeche(){
-
+		
+		System.out.print("\n");
 		System.out.println("Tipo de leche: " + (this.getTipo()));
 		System.out.println("Procedencia: " + (this.getProcedencia()));
 		System.out.println("Precio: " + (this.getEurosLitro()) + " €/l");
@@ -74,6 +75,5 @@ public class Leche extends Producto {
 		System.out.println("CIF: " + this.getDistribuidor().getCif());
 		System.out.println("Dirección: " + this.getDistribuidor().getDireccion().getDireccion());
 		System.out.println("Persona de contacto: " + this.getDistribuidor().getPersonaContacto().getNombre() + " " + this.getDistribuidor().getPersonaContacto().getApellido() + ", tlf.: " + this.getDistribuidor().getPersonaContacto().getTelefono());
-		System.out.print("\n");
 	}
 }
